@@ -1,65 +1,20 @@
-package com.android.mycalculator
+package com.android.myapplicationdd
 
-fun main() {
-    var num1 = readLine()!!.toDouble()
-    var operation = readLine()!!.toString()
-    var num2 = readLine()!!.toDouble()
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
 
-    var cal = Calculator()
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-    var result = {num1().operation().num2()}
+        val nextButton = findViewById<Button>(R.id.btn_next)
 
-    println("${num1}${operation}${num2}의 값은 ${result}")
-
-
-
-
-}
-
-class Calculator {
-    fun Operate(num1: Double, oper: String, num2: Double): String {
-
-        var sub = SubstractOperation()
-        var add = AddOperation()
-        var mul = MultiplyOperation()
-        var div = DivideOperation()
-        var result: String
-
-    }
-}
-
-class AddOperation {
-    fun operate(num1:Double, num2:Double): String {
-
-        var result: String
-        result = (num1 + num2).toString()
-        return result
-    }
-}
-
-class SubstractOperation {
-    fun operate(num1:Double, num2:Double): String {
-
-        var result: String
-        result = (num1-num2).toString()
-        return result
-    }
-}
-
-class MultiplyOperation {
-    fun operate(num1: Double, num2: Double): String {
-
-        var result: String
-        result = (num1 * num2).toString()
-        return result
-    }
-}
-
-class DivideOperation {
-    fun operate(num1: Double, num2: Double): String {
-
-        var result: String
-        result = (num1 / num2).toString()
-        return result
+        nextButton.setOnClickListener {
+            val intent = Intent(this, Intent_Activity::class.java)
+            startActivity(intent)
+        }
     }
 }
